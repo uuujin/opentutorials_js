@@ -6,48 +6,36 @@
 </head>
 <body>
 	<a href=""><h1>WEB</h1></a>
-<!-- 	<input type="button" value="day" onclick="
-		if (document.querySelector('body').dataset.mode ==='day') {
-			document.querySelector('body').style.backgroundColor = 'black';
-			document.querySelector('body').style.color = 'white';
-			document.querySelector('body').dataset.mode = 'night';
-			this.value = 'night';
-		} else {
-			document.querySelector('body').style.backgroundColor = 'white';
-			document.querySelector('body').style.color = 'black';
-			document.querySelector('body').dataset.mode = 'day';
-			this.value = 'day';
-		}
-	"> -->
 	<script>
-		var target = document.querySelector('body');
+		function nightDayHandler(self){
+			var target = document.querySelector('body');
+			if (self.value === 'night') {
+				target.style.backgroundColor = 'black';
+				target.style.color = 'white';
+				self.value = 'day';
+
+				var links = document.querySelectorAll('a');
+				var i = 0;
+				while(i < links.length){
+					links[i].style.color = 'powderblue';
+					i += 1;
+				}
+
+			} else {
+				target.style.backgroundColor = 'white';
+				target.style.color = 'black';
+				self.value = 'night';
+
+				var links = document.querySelectorAll('a');
+				var i = 0;
+				while(i < links.length){
+					links[i].style.color = 'blue';
+					i += 1;
+				}
+			}
+		};
 	</script>
-	<input type="button" value="night" onclick="
-		if (this.value === 'night') {
-			target.style.backgroundColor = 'black';
-			target.style.color = 'white';
-			this.value = 'day';
-
-			var links = document.querySelectorAll('a');
-			var i = 0;
-			while(i < links.length){
-				links[i].style.color = 'powderblue';
-				i += 1;
-			}
-
-		} else {
-			target.style.backgroundColor = 'white';
-			target.style.color = 'black';
-			this.value = 'night';
-
-			var links = document.querySelectorAll('a');
-			var i = 0;
-			while(i < links.length){
-				links[i].style.color = 'blue';
-				i += 1;
-			}
-		}
-	">
+	<input type="button" value="night" onclick="nightDayHandler(this)">
 	<ol>
 		<li><a href="#">HTML</a></li>
 		<li><a href="#">CSS</a></li>
@@ -69,3 +57,16 @@
 	</script>
 </body>
 </html>
+<!-- 	<input type="button" value="day" onclick="
+		if (document.querySelector('body').dataset.mode ==='day') {
+			document.querySelector('body').style.backgroundColor = 'black';
+			document.querySelector('body').style.color = 'white';
+			document.querySelector('body').dataset.mode = 'night';
+			this.value = 'night';
+		} else {
+			document.querySelector('body').style.backgroundColor = 'white';
+			document.querySelector('body').style.color = 'black';
+			document.querySelector('body').dataset.mode = 'day';
+			this.value = 'day';
+		}
+	"> -->
