@@ -6,7 +6,7 @@
 </head>
 <body>
 	<a href=""><h1>WEB</h1></a>
-	<input type="button" value="day" onclick="
+<!-- 	<input type="button" value="day" onclick="
 		if (document.querySelector('body').dataset.mode ==='day') {
 			document.querySelector('body').style.backgroundColor = 'black';
 			document.querySelector('body').style.color = 'white';
@@ -18,12 +18,52 @@
 			document.querySelector('body').dataset.mode = 'day';
 			this.value = 'day';
 		}
+	"> -->
+	<script>
+		var target = document.querySelector('body');
+	</script>
+	<input type="button" value="night" onclick="
+		if (this.value === 'night') {
+			target.style.backgroundColor = 'black';
+			target.style.color = 'white';
+			this.value = 'day';
+
+			var links = document.querySelectorAll('a');
+			var i = 0;
+			while(i < links.length){
+				links[i].style.color = 'powderblue';
+				i += 1;
+			}
+
+		} else {
+			target.style.backgroundColor = 'white';
+			target.style.color = 'black';
+			this.value = 'night';
+
+			var links = document.querySelectorAll('a');
+			var i = 0;
+			while(i < links.length){
+				links[i].style.color = 'blue';
+				i += 1;
+			}
+		}
 	">
 	<ol>
 		<li><a href="#">HTML</a></li>
 		<li><a href="#">CSS</a></li>
 		<li><a href="#">JAVASCRIPT</a></li>
 	</ol>
+	<input type="button" value="night" onclick="
+		if (this.value === 'night') {
+			target.style.backgroundColor = 'black';
+			target.style.color = 'white';
+			this.value = 'day';
+		} else {
+			target.style.backgroundColor = 'white';
+			target.style.color = 'black';
+			this.value = 'night';
+		}
+	">
 	<script>
 		
 	</script>
